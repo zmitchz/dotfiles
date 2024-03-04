@@ -44,7 +44,18 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { "LiadOz/nvim-dap-repl-highlights" },
+    dependencies = {
+      {
+        "theHamsta/nvim-dap-virtual-text",
+        opts = function()
+          return require "plugins.configs.dap-virt-text"
+        end,
+        config = function(_, opts)
+          require("nvim-dap-virtual-text").setup(opts)
+        end,
+      },
+      "LiadOz/nvim-dap-repl-highlights",
+    },
     init = function()
       require("core.utils").lazy_load "nvim-treesitter"
     end,
@@ -209,28 +220,31 @@ local plugins = {
   },
 
   {
-    "rcarriga/nvim-dap-ui",
+    "mfussenegger/nvim-dap",
     dependencies = {
-      {
-        "mfussenegger/nvim-dap",
-        dependencies = {
-          "theHamsta/nvim-dap-virtual-text",
-          "LiadOz/nvim-dap-repl-highlights",
-        },
-        config = function()
-          require "plugins.configs.dap"
-        end,
-      },
-      "theHamsta/nvim-dap-virtual-text",
+      "LiadOz/nvim-dap-repl-highlights",
     },
     init = function()
       require("mappings").plugins.dap()
     end,
+    config = function()
+      require "plugins.configs.dap"
+    end,
+  },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    init = function()
+      require("mappings").plugins.dapui()
+    end,
     opts = function()
-      return require "plugins.configs.dap-ui.options"
+      return require "plugins.configs.dap-ui"
     end,
     config = function(_, opts)
-      require("dap-ui").setup(opts)
+      require("dapui").setup(opts)
     end,
   },
 
@@ -391,15 +405,15 @@ local plugins = {
     "kevinhwang91/nvim-ufo",
     event = "BufReadPost",
     dependencies = "kevinhwang91/promise-async",
-    init = function ()
+    init = function()
       require("mappings").plugins.ufo()
       require("plugins.configs.ufo").init()
     end,
-    opts = function ()
-        return require("plugins.configs.ufo").opts
+    opts = function()
+      return require("plugins.configs.ufo").opts
     end,
     config = function()
-            require("ufo").setup(opts)
+      require("ufo").setup(opts)
     end,
   },
 
@@ -485,6 +499,16 @@ local plugins = {
     end,
     config = function(_, opts)
       require("colorizer").setup(opts)
+    end,
+  },
+
+  {
+    "echasnovski/mini.animate",
+    version = "*",
+    event = "BufEnter",
+    opts = {},
+    config = function(_, opts)
+      require("mini.animate").setup(opts)
     end,
   },
 }
