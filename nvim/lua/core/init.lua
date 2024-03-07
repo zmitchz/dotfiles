@@ -65,10 +65,9 @@ autocmd("FileType", {
   end,
 })
 
-autocmd('TextYankPost', {
+autocmd("TextYankPost", {
   group = misc_aucmds,
   callback = function()
     vim.highlight.on_yank()
   end,
 })
-

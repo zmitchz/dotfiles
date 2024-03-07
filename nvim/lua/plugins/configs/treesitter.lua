@@ -1,7 +1,7 @@
-require('nvim-dap-repl-highlights').setup()
+require("nvim-dap-repl-highlights").setup()
 
 local options = {
-  ensure_installed = { "c", "dap_repl", "lua", "python", "rust", },
+  ensure_installed = { "c", "dap_repl", "lua", "python", "rust" },
 
   highlight = {
     enable = true,

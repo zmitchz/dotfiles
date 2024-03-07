@@ -145,16 +145,20 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
-    disable_filetype = "TelescopePrompt",
+    disable_filetype = { "prompt", "TelescopePrompt" },
     dependencies = {
       {
         "L3MON4D3/LuaSnip",
         dependencies = "rafamadriz/friendly-snippets",
+        build = "make install_jsregexp",
+        init = function()
+          require("plugins.configs.luasnip").init()
+        end,
         opts = function()
           return require("plugins.configs.luasnip").opts
         end,
         config = function(_, opts)
-          require("plugins.configs.luasnip").init()
+          require("luasnip").setup(opts)
         end,
       },
       {
@@ -414,6 +418,16 @@ local plugins = {
     end,
     config = function()
       require("ufo").setup(opts)
+    end,
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+    ft = { "javascript", "typescript", "typescriptreact", "jsx", "tsx" },
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        autotag = { enable = true },
+      }
     end,
   },
 
