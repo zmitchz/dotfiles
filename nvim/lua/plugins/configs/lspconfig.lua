@@ -71,6 +71,12 @@ require("lspconfig").clangd.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 }
+
+require("lspconfig").cssls.setup {
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+}
+
 require("lspconfig").pyright.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
@@ -83,12 +89,12 @@ require("lspconfig").texlab.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 }
-require("lspconfig").yamlls.setup {
+require("lspconfig").tsserver.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 }
 
-require("lspconfig").tsserver.setup {
+require("lspconfig").yamlls.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 }
