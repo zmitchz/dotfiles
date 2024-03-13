@@ -139,8 +139,7 @@ static const Key keys[] = {
     { 0,                            XF86XK_MonBrightnessUp,   spawn, {.v = uplight}   },
     { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = downlight} },
 #endif
-    { MODKEY,                       XK_d,           spawn,          {.v = dmenucmd1 } },
-    { MODKEY|ControlMask,           XK_d,           spawn,          {.v = dmenucmd } },
+    { MODKEY,                       XK_d,           spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_Return,      spawn,          {.v = termcmd } },
     { MODKEY|ShiftMask,             XK_s,           spawndefault,   {0} },
     { MODKEY|ShiftMask,             XK_f,           spawn,          {.v = browsercmd } },
