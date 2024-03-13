@@ -32,53 +32,53 @@ static const char nbgcolor[]		= PURPLE2;
 static const char nbcolor[]         = PURPLE1;
 static const char nmarkcolor[]		= BLUE1;
 
-/* Selected */ 
+/* Selected */
 static const char selfgcolor[]		= PINK1;
 static const char selbgcolor[]		= PURPLE1;
 static const char selbcolor[]		= PINK1;
 static const char selmarkcolor[]    = BLUE2;
 
-/* Urgent */ 
+/* Urgent */
 static const char urgfgcolor[]		= RED1;
 static const char urgbgcolor[]		= RED3;
 static const char urgbcolor[]		= RED1;
 static const char urgmarkcolor[]    = GREEN1;
 
-/* Status */ 
+/* Status */
 static const char sfgcolor[]		= PINK1;
 static const char sbgcolor[]		= PURPLE2;
 static const char sbcolor[]		    = PURPLE1;
 static const char smarkcolor[]		= BLACK;
 
-/* Tags */ 
+/* Tags */
 static const char tnfgcolor[]		= PINK1;
 static const char tnbgcolor[]		= PURPLE2;
 static const char tnbcolor[]		= BLUE2;
 static const char tnmarkcolor[]		= GREEN1;
 
-/* Selected Tag */ 
+/* Selected Tag */
 static const char tselfgcolor[]		= PINK1;
 static const char tselbgcolor[]		= PURPLE1;
 static const char tselbcolor[]		= GREEN1;
 static const char tselmarkcolor[]   = CYAN2;
 
-/* Info */ 
+/* Info */
 static const char infgcolor[]		= PINK1;
-static const char inbgcolor[]		= CYAN1;
+static const char inbgcolor[]		= PURPLE1;
 static const char inbcolor[]		= BLUE2;
 static const char inmarkcolor[]		= GRAY1;
 
-/* Selected Info */ 
+/* Selected Info */
 static const char iselfgcolor[]		= PINK1;
 static const char iselbgcolor[]		= PURPLE2;
 static const char iselbcolor[]		= PURPLE2;
 static const char iselmarkcolor[]   = GREEN1;
 
-/* dmenu */ 
+/* dmenu */
 static const char dmenufgcolor[]    = PINK1;
 static const char dmenubgcolor[]    = PURPLE2;
 
-/* Selected dmenu */ 
+/* Selected dmenu */
 static const char dmenuselfgcolor[] = PINK1;
 static const char dmenuselbgcolor[] = PURPLE1;
 

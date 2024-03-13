@@ -1,6 +1,7 @@
 local opts = {
   formatters_by_ft = {
     ["*"] = { "trim_whitespace" },
+    css = { { "prettierd", "prettier" } },
     javascript = { { "prettierd", "prettier" } },
     typescript = { { "prettierd", "prettier" } },
     typescriptreact = { { "prettierd", "prettier" } },

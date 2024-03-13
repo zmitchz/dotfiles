@@ -3,6 +3,7 @@
 #include <X11/X.h>
 #include <X11/XF86keysym.h>
 #include "colors.h"
+#include "version.h"
 
 #define TERMINAL "kitty"
 #define TERMCLASS "kitty"
@@ -109,8 +110,6 @@ static const char *dmenucmd1[] =                { "dmenu_run", "-m", dmenumon, "
 static const char *dmenucmd[] =                 { "j4-dmenu-desktop --dmenu=\"dmenu -i -y 250 -x 760 -dim 0.25 -h 50 -w 400 -nb \\#3d056b -nf \\#df00e3 -sf \\#02fa1f -l 10 -fn \"Droid Sans Mono-30\"\"", NULL };
 static const char *termcmd[]  =                 { "kitty", NULL };
 static const char *browsercmd[]  =              { "firefox", NULL };
-// static const char *editorcmd[]  =               { "idea", NULL };
-// static const char *musiccmd[]  =                { "kitty", "--name", "musicplayer", "spt", NULL };
 static const char *shutdowncmd[]  =             { "shutdown", "now", NULL };
 static const char *screenshotcmd[]  =           { "scrot", NULL };
 static const char *screenshotpartialcmd[]  =    { "scrot", "-f", "-s", NULL };
@@ -119,10 +118,6 @@ static const char *screenshotpartialcmd[]  =    { "scrot", "-f", "-s", NULL };
 static const char *upvol[]     = { "pactl", "set-sink-volume",  "0", "+5%", NULL };
 static const char *downvol[]   = { "pactl", "set-sink-volume",  "0", "-5%", NULL };
 static const char *mutevol[]   = { "pactl", "set-sink-mute",    "0", "toggle", NULL };
-// static const char *prev[]      = {"playerctl", "previous", NULL };
-// static const char *next[]      = {"playerctl", "next", NULL };
-// static const char *playpause[] = {"playerctl", "play-pause", NULL };
-
 static const char **startup_programs[] = { browsercmd };
 
 static const Key keys[] = {
@@ -157,10 +152,12 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             XK_d,           incnmaster,     {.i = -1 } },
     { MODKEY|ShiftMask,             XK_space,       zoom,           {0} },
 
+#ifdef DESKTOP
     { MODKEY,                       XK_comma,       focusmon,       {.i = -1 } },
     { MODKEY,                       XK_period,      focusmon,       {.i = +1 } },
     { MODKEY|ShiftMask,             XK_comma,       tagmon,         {.i = -1 } },
     { MODKEY|ShiftMask,             XK_period,      tagmon,         {.i = +1 } },
+#endif
 
     { MODKEY,                       XK_c,           movecenter,     {0} },
     { MODKEY,                       XK_0,           view,           {.ui = ~0 } },
