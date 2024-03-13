@@ -106,8 +106,12 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd1[] =                { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dmenubgcolor, "-nf", dmenufgcolor, "-sb", dmenuselbgcolor, "-sf", dmenuselfgcolor, NULL };
+#ifdef DESKTOP
+static const char *dmenucmd[] =                { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dmenubgcolor, "-nf", dmenufgcolor, "-sb", dmenuselbgcolor, "-sf", dmenuselfgcolor, NULL };
+#endif
+#ifdef LAPTOP
 static const char *dmenucmd[] =                 { "j4-dmenu-desktop --dmenu=\"dmenu -i -y 250 -x 760 -dim 0.25 -h 50 -w 400 -nb \\#3d056b -nf \\#df00e3 -sf \\#02fa1f -l 10 -fn \"Droid Sans Mono-30\"\"", NULL };
+#endif
 static const char *termcmd[]  =                 { "kitty", NULL };
 static const char *browsercmd[]  =              { "firefox", NULL };
 static const char *shutdowncmd[]  =             { "shutdown", "now", NULL };
@@ -118,6 +122,12 @@ static const char *screenshotpartialcmd[]  =    { "scrot", "-f", "-s", NULL };
 static const char *upvol[]     = { "pactl", "set-sink-volume",  "0", "+5%", NULL };
 static const char *downvol[]   = { "pactl", "set-sink-volume",  "0", "-5%", NULL };
 static const char *mutevol[]   = { "pactl", "set-sink-mute",    "0", "toggle", NULL };
+
+#ifdef LAPTOP
+static const char *uplight[]   = { "backlight_control", "+10", NULL };
+static const char *downlight[] = { "backlight_control", "-10", NULL };
+#endif
+
 static const char **startup_programs[] = { browsercmd };
 
 static const Key keys[] = {
@@ -125,7 +135,10 @@ static const Key keys[] = {
     { 0,                            XF86XK_AudioLowerVolume,  spawn, {.v = downvol}   },
     { 0,                            XF86XK_AudioRaiseVolume,  spawn, {.v = upvol}     },
     { 0,                            XF86XK_AudioMute,         spawn, {.v = mutevol}   },
-
+#ifdef LAPTOP
+    { 0,                            XF86XK_MonBrightnessUp,   spawn, {.v = uplight}   },
+    { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = downlight} },
+#endif
     { MODKEY,                       XK_d,           spawn,          {.v = dmenucmd1 } },
     { MODKEY|ControlMask,           XK_d,           spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_Return,      spawn,          {.v = termcmd } },
