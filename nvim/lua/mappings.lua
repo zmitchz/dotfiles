@@ -28,7 +28,7 @@ M.general = function()
       },
       b = {
         name = "Buffer",
-        c = { "<cmd>q<CR>", "Quit / Close split" },
+        q = { "<cmd>q<CR>", "Quit / Close split" },
       },
       h = { "<cmd> split <CR>", "Horizontal Split" },
       s = { "<cmd>luafile $MYVIMRC<CR>", "Source init file" },
@@ -597,7 +597,12 @@ M.plugins = {
 
   toggleterm = function()
     wk.register({
-      ["<A-h>"] = { "<cmd> ToggleTerm<CR>", "Toggle Terminal" },
+      ["<A-1>"] = { "<cmd> ToggleTerm 1 size=10 direction=horizontal name=HTerm1<CR>", "Toggle horizontal terminal 1" },
+      ["<A-2>"] = { "<cmd> ToggleTerm 2 size=10 direction=horizontal name=HTerm2<CR>", "Toggle horizontal terminal 2" },
+      ["<A-3>"] = { "<cmd> ToggleTerm 3 size=10 direction=horizontal name=HTerm3<CR>", "Toggle horizontal terminal 3" },
+      ["<A-v>1"] = { "<cmd> ToggleTerm 4 size=100 direction=vertical name=VTerm1<CR>", "Toggle vertical terminal 1" },
+      ["<A-v>2"] = { "<cmd> ToggleTerm 5 size=100 direction=vertical name=Vterm2<CR>", "Toggle vertical terminal 2" },
+      ["<A-v>3"] = { "<cmd> ToggleTerm 6 size=100 direction=vertical name=Vterm3<CR>", "Toggle vertical terminal 3" },
     }, { mode = { "n", "t" } })
   end,
 

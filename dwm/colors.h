@@ -81,4 +81,3 @@ static const char dmenubgcolor[]    = PURPLE2;
 /* Selected dmenu */
 static const char dmenuselfgcolor[] = PINK1;
 static const char dmenuselbgcolor[] = PURPLE1;
-

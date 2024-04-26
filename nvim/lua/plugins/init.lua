@@ -138,7 +138,7 @@ local plugins = {
       require("core.utils").lazy_load "nvim-lspconfig"
     end,
     config = function()
-      require "plugins.configs.lspconfig"
+      require "plugins.configs.lsp.lspconfig"
     end,
   },
 
@@ -363,6 +363,12 @@ local plugins = {
     lazy = false,
     init = function()
       require("plugins.configs.notify").init()
+    end,
+    opts = function()
+      return require("plugins.configs.notify").opts
+    end,
+    config = function(_, opts)
+      require("notify").setup(opts)
     end,
   },
 

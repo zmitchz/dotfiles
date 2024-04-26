@@ -46,25 +46,18 @@ M.capabilities.textDocument = {
   },
 }
 
+require("lspconfig").arduino_language_server.setup {
+  on_attach = M.on_attach,
+}
+
+require("lspconfig").bashls.setup {
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+}
 require("lspconfig").lua_ls.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-          [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
-        },
-        maxPreload = 100000,
-        preloadFileSize = 10000,
-      },
-    },
-  },
+  require "plugins.configs.lsp.lua-lsp",
 }
 
 require("lspconfig").clangd.setup {
@@ -76,6 +69,8 @@ require("lspconfig").cssls.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 }
+
+require("lspconfig").ltex.setup {}
 
 require("lspconfig").pyright.setup {
   on_attach = M.on_attach,
@@ -91,7 +86,6 @@ require("lspconfig").texlab.setup {
 }
 require("lspconfig").tsserver.setup {
   on_attach = M.on_attach,
-  capabilities = M.capabilities,
 }
 
 require("lspconfig").yamlls.setup {
