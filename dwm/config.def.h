@@ -110,7 +110,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] =                { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dmenubgcolor, "-nf", dmenufgcolor, "-sb", dmenuselbgcolor, "-sf", dmenuselfgcolor, NULL };
 #endif
 #ifdef LAPTOP
-static const char *dmenucmd[] =                 { "j4-dmenu-desktop --dmenu=\"dmenu -i -y 250 -x 760 -dim 0.25 -h 50 -w 400 -nb \\#3d056b -nf \\#df00e3 -sf \\#02fa1f -l 10 -fn \"Droid Sans Mono-30\"\"", NULL };
+static const char *dmenucmd[] =                 { "j4-dmenu-desktop --dmenu='dmenu -i -y 250 -x 760 -dim 0.25 -h 50 -w 400 -nb \\#3d056b -nf \\#df00e3 -sf \\#02fa1f -l 10 -fn \"Droid Sans Mono-30\"'", NULL };
 #endif
 static const char *termcmd[]  =                 { "kitty", NULL };
 static const char *browsercmd[]  =              { "firefox", NULL };

@@ -6,6 +6,7 @@ g.python3_host_prog = "/usr/bin/python3"
 
 -------------------------------------- options ------------------------------------------
 opt.laststatus = 3 -- global statusline
+opt.showcmd = false
 opt.showmode = false
 opt.pumblend = 20
 opt.winblend = 20

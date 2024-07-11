@@ -72,18 +72,26 @@ require("lspconfig").cssls.setup {
 
 require("lspconfig").ltex.setup {}
 
+require("lspconfig").powershell_es.setup {
+  bundle_path = "/opt/powershell-editor-services",
+  settings = { powershell = { codeFormatting = { Preset = "OTBS" } } },
+}
+
 require("lspconfig").pyright.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 }
+
 require("lspconfig").rust_analyzer.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 }
+
 require("lspconfig").texlab.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 }
+
 require("lspconfig").tsserver.setup {
   on_attach = M.on_attach,
 }
