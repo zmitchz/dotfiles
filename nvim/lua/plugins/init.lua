@@ -32,7 +32,6 @@ local plugins = {
     build = ":TSUpdate",
     init = function()
       require("plugins.configs.indent-blankline").init()
-      require("mappings").plugins.blankline()
     end,
     opts = function()
       return require("plugins.configs.indent-blankline").opts

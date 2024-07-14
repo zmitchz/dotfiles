@@ -119,8 +119,6 @@ M.plugins = {
     }, { mode = "n" })
   end,
 
-  blankline = function() end,
-
   bufferline = function()
     local buf = require "bufferline"
     -- Normal
