@@ -77,6 +77,11 @@ require("lspconfig").powershell_es.setup {
   settings = { powershell = { codeFormatting = { Preset = "OTBS" } } },
 }
 
+require("lspconfig").marksman.setup {
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+}
+
 require("lspconfig").pyright.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,

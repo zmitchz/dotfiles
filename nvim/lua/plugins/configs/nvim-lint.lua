@@ -1,7 +1,7 @@
 require("lint").linters_by_ft = {
   css = { "stylelint" },
   latex = { "chktex", "lacheck" },
-  markdown = { "vale" },
+  markdown = { "markdownlint" },
   python = { "pylint" },
 }
 

@@ -271,6 +271,7 @@ local plugins = {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-telescope/telescope-dap.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
 
@@ -340,6 +341,14 @@ local plugins = {
   },
 
   {
+    "mfussenegger/nvim-jdtls",
+    ft = "java",
+    config = function()
+      dofile "/home/mitchell/.config/nvim/lua/plugins/configs/lsp/java-lsp.lua"
+    end,
+  },
+
+  {
     "lervag/vimtex",
     ft = { "tex", "latex" },
     init = function()
@@ -348,6 +357,15 @@ local plugins = {
       vim.g.vimtex_view_general_viewer = "zathura"
       vim.g.vimtex_view_general_options = [[--unique file:@pdf\#src:@line@tex]]
       vim.g.vimtex_compiler_method = "latexmk"
+    end,
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
     end,
   },
 

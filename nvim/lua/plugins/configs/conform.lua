@@ -3,11 +3,12 @@ local opts = {
     ["*"] = { "trim_whitespace" },
     css = { { "prettierd", "prettier" } },
     javascript = { { "prettierd", "prettier" } },
-    typescript = { { "prettierd", "prettier" } },
-    typescriptreact = { { "prettierd", "prettier" } },
     lua = { "stylua" },
+    markdown = { "markdownlint" },
     python = { "isort", "black" },
     rust = { "rustfmt" },
+    typescript = { { "prettierd", "prettier" } },
+    typescriptreact = { { "prettierd", "prettier" } },
   },
 
   format_on_save = {
