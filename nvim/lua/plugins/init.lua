@@ -344,7 +344,7 @@ local plugins = {
     "mfussenegger/nvim-jdtls",
     ft = "java",
     config = function()
-      dofile "/home/mitchell/.config/nvim/lua/plugins/configs/lsp/java-lsp.lua"
+      require "plugins.configs.lsp.java-lsp"
     end,
   },
 
@@ -471,7 +471,7 @@ local plugins = {
     lazy = false,
     priority = 1000,
     init = function()
-      require("nightfox").setup { options = { transparent = true } }
+      require("nightfox").setup { options = { transparent = false } }
       vim.cmd "colorscheme carbonfox"
     end,
   },
